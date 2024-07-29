@@ -7,6 +7,12 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <Label Text="Welcome to the Meal Ordering App!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+
+            <Button Text="Start Ordering"
+                    Clicked="OnStartOrderingClicked"/>
 
         </VerticalStackLayout>
     </ScrollView>
