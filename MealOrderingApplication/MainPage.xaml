@@ -4,17 +4,44 @@
              x:Class="MealOrderingApplication.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
+        <StackLayout
             Padding="30,0"
-            Spacing="25">
-            <Label Text="Welcome to the Meal Ordering App!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"/>
+            Spacing="25" BackgroundColor="White">
+            <Grid ColumnDefinitions="*,*,*"
+                  RowDefinitions="*,*,*,*,*,*,*,*,*"
+                  Padding="2.5"
+                  RowSpacing="2.5">
+                <Label 
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    FontSize="Title"
+                    Text="Welcome to The Corner Bite Restaurant" VerticalOptions="Center" HorizontalOptions="Center" 
+                    TextColor="Black"/>
+                <Image
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Source="main.jpg"  Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="End" />
+                <Button 
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Grid.ColumnSpan="3"
+                    Text="Start your order" Clicked="StartOrderingButton_Clicked"
+                    VerticalOptions="End" HorizontalOptions="FillAndExpand"
+                    BackgroundColor="Blue"
+                    TextColor="White"/>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="7"
+                    Grid.ColumnSpan="3"
+                    FontSize="Title"
+                    Text="Rishabh Mishra 991753573 " VerticalOptions="Center" HorizontalOptions="Center"
+                    TextColor="Black"/>
 
-            <Button Text="Start Ordering"
-                    Clicked="OnStartOrderingClicked"/>
+            </Grid>
 
-        </VerticalStackLayout>
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>

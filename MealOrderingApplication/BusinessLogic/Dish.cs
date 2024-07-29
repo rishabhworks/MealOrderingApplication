@@ -10,21 +10,28 @@ namespace MealOrderingApplication.BusinessLogic
 {
     public class Dish
     {
-        public string Name { get; set; }
+        public string Name {  get; set; }
         public double Price { get; set; }
+
         public string Description { get; set; }
-        public string Image { get; set; }
 
-    }
+        public string Image {  get; set; }
 
-    public Dish(string name, double price, string description, string image)
-    {
-        if (price <= 0)
-            throw new ArgumentException("Price must be greater than zero");
 
-        Name = name;
-        Price = price;
-        Description = description;
-        Image = image;
+        public Dish(string image, string name, double price, string description) 
+        {
+            Name = name;
+            Price = price > 0 ? price : throw new ArgumentException("Price must be greater than 0");
+            Description = description;
+            Image = image;
+        }
+
+
+
+
+
+
+
+
     }
 }

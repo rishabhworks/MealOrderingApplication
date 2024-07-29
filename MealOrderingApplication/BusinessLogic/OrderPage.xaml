@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MealOrderingApplication.BusinessLogic.OrderPage"
+             Title="OrderPage">
+    <Grid RowDefinitions="Auto, Auto, *"
+       ColumnDefinitions="*,Auto,*">
+        <Label Grid.Column="0" Grid.ColumnSpan="3" Text="Select your Dish" FontSize="24" HorizontalOptions="Center" Grid.Row="0" TextColor="Black"/>
+        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Show my order" Clicked="OnShowOrderClicked" BackgroundColor="DarkBlue" TextColor="White" HorizontalOptions="Center" Grid.Row="1"/>
+        <ListView x:Name="DishesListView" ItemsSource="{Binding Dishes}" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" BackgroundColor="LightGray" Margin="5" WidthRequest="600" HeightRequest="150">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Image}" WidthRequest="100" HeightRequest="100" Grid.RowSpan="3" Grid.Column="0"/>
+                            <Label Text="{Binding Name}" FontSize="Large" TextColor="Blue" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="{Binding Price, StringFormat='{0:C}'}" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" TextColor="Navy"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:OrderPage}}, Path=BindingContext.AddToOrderCommand}" 
+                                 CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

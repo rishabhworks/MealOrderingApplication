@@ -66,4 +66,13 @@
 	  <Folder Include="Resources\Fonts\NewFolder\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="BusinessLogic\OrderPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BusinessLogic\ViewOrderPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
